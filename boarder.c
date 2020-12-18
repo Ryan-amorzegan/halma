@@ -47,16 +47,16 @@ int main(){
     board[1][0] = 220;
     board[1][1] = 220;
     board[1][3] = 220;
-    print_board(board,zel);
     while (1)
     {
-        int i,j,x,y;
-        scanf("%d %d",&i,&j);
-        board[i-1][j-1] = 32;
-        scanf("%d %d",&x,&j);
-        board[x - 1][y - 1] = 220;
-        printf("%c",board[x - 1][y - 1]);
-        print_board(board,zel);
+        print_board(board, zel);
+		int i, j,x,y;
+		printf("\nyour move \n");
+		scanf("%d %d", &i, &j);
+		printf("to which position??");
+		scanf("%d %d", &x, &y);
+		board[x - 1][y - 1] = 223;
+		board[i - 1][j - 1] = 32;
     }
     
     return 0;
