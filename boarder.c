@@ -21,6 +21,47 @@ void print_board(int game[50][50], int zel){
 
     }   
 }
+void posible(int board[50][50], int a,int x,int y){
+    x = x - 1;
+    y = y - 1;
+    if (a)
+    {
+        for (int i = -1; i <=1; i++)
+        {
+            for (int j = -1; j <= 1; j++)
+            {
+                if (x + i >= 0 && y + j >= 0)
+                {
+                    if (board[x+ i][y + j] == 32)
+                    {
+                        board[x+ i][y + j] = 42;
+                    }   
+                }
+                
+            }
+            
+        }
+        
+    }
+    else
+    {
+        for (int i = 0; i < x; i++)
+        {
+            for (int j = 0; j < y; j++)
+            {
+                if (board[i][j] == 42)
+                {
+                    board[i][j] = 32;
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    
+}
 int main(){
     int board[50][50];
     int zel;
@@ -54,9 +95,12 @@ int main(){
 		printf("\nyour move \n");
 		scanf("%d %d", &i, &j);
 		printf("to which position??");
+        posible(board,1,i,j);
+        print_board(board, zel);
 		scanf("%d %d", &x, &y);
 		board[x - 1][y - 1] = 223;
 		board[i - 1][j - 1] = 32;
+        posible(board,0,zel,zel);
     }
     
     return 0;
