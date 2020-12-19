@@ -1,1 +1,0 @@
-lpadldkal;ldda
