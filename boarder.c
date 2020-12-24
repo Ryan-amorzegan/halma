@@ -64,6 +64,34 @@ int reset(int board[50][50], int zel){
             
         }
 }
+jump(int board[][50],int i,int j,int zel){
+    i--;
+    j--;
+    for (int h = j + 1; h < zel; h++)
+    {
+        if (board[i][h] == 220)
+        {
+            int dy = h - j;
+            for (int p = 1; p < dy; p++)
+            {
+                if (board[i][h + dy])
+                {
+                    break;
+                }
+            }
+            if (board[i][j + 2*dy] == 32)
+            {
+                board[i][j + 2*dy] = 42;
+            }
+            break;
+            
+            
+        }
+        
+    }
+    
+
+}
 int main(){
     int board[50][50];
     int zel;
@@ -96,10 +124,11 @@ int main(){
 		printf("\nyour move \n");
 		scanf("%d %d", &i, &j);
         posible(board,i,j);
+        jump(board,i,j,zel);
         print_board(board, zel);
         printf("to which position??\n");
 		scanf("%d %d", &x, &y);
-		board[x - 1][y - 1] = 223;
+		board[x - 1][y - 1] = 220;
 		board[i - 1][j - 1] = 32;
         reset(board,zel);
     }
