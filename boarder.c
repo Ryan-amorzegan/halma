@@ -11,7 +11,7 @@ void print_board(int game[50][50], int zel){
         {
             printf("%c%c",186,game[i][j]);
         }
-        printf("%c\n",186);
+        printf("%c\n",186);njk
         for (int j = 0; j <= 2* zel; j++)
         {
             printf("%c",61);
